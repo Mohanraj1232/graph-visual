@@ -13,9 +13,7 @@ export const ControlPanel = ({
   isDirected, 
   setIsDirected,
   showWeights,
-  setShowWeights,
-  hoveredNode,
-  hoveredLink
+  setShowWeights
 }) => {
   const [graphInput, setGraphInput] = useState('');
 
@@ -178,28 +176,6 @@ export const ControlPanel = ({
             />
           </div>
         </div>
-
-        {/* Hover Info */}
-        {(hoveredNode || hoveredLink) && (
-          <div className="bg-black/60 border border-cyan-500/30 rounded-lg p-3 backdrop-blur-md">
-            <p className="text-[10px] text-white/50 uppercase tracking-wider mb-1">Hover Info</p>
-            {hoveredNode && (
-              <p className="text-cyan-400 font-mono text-sm">Node: {hoveredNode.id}</p>
-            )}
-            {hoveredLink && (
-              <div className="space-y-1">
-                <p className="text-purple-400 font-mono text-sm">
-                  Edge: {hoveredLink.source.id || hoveredLink.source} → {hoveredLink.target.id || hoveredLink.target}
-                </p>
-                {hoveredLink.weight && (
-                  <p className="text-yellow-400 font-mono text-xs">
-                    Weight: {hoveredLink.weight}
-                  </p>
-                )}
-              </div>
-            )}
-          </div>
-        )}
 
         {/* Action Buttons */}
         <div className="space-y-3">

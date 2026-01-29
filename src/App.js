@@ -8,8 +8,6 @@ function App() {
   const [graphData, setGraphData] = useState({ nodes: [], links: [] });
   const [isDirected, setIsDirected] = useState(false);
   const [showWeights, setShowWeights] = useState(true);
-  const [hoveredNode, setHoveredNode] = useState(null);
-  const [hoveredLink, setHoveredLink] = useState(null);
   const graphRef = useRef();
 
   const handleGenerateGraph = useCallback((data) => {
@@ -39,14 +37,6 @@ function App() {
     }
   }, []);
 
-  const handleNodeHover = useCallback((node) => {
-    setHoveredNode(node);
-  }, []);
-
-  const handleLinkHover = useCallback((link) => {
-    setHoveredLink(link);
-  }, []);
-
   return (
     <div className="App" data-testid="app-container">
       <Toaster 
@@ -66,8 +56,6 @@ function App() {
         graphData={graphData}
         isDirected={isDirected}
         showWeights={showWeights}
-        onNodeHover={handleNodeHover}
-        onLinkHover={handleLinkHover}
       />
       
       <ControlPanel 
@@ -77,8 +65,6 @@ function App() {
         setIsDirected={setIsDirected}
         showWeights={showWeights}
         setShowWeights={setShowWeights}
-        hoveredNode={hoveredNode}
-        hoveredLink={hoveredLink}
       />
     </div>
   );
