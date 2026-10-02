@@ -7,7 +7,7 @@ on:
 jobs:
   agent:
     if: github.event.label.name == 'devpilot'
-    uses: Mohanraj1232/devpilot/.github/workflows/devpilot.yml@v1
+    uses: Mohanraj1232/devpilot/.github/workflows/devpilot.yml@main
     secrets:
       DEVPILOT_BOT_TOKEN: ${{ secrets.DEVPILOT_BOT_TOKEN }}
     with:
